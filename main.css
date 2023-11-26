@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+body{
+    background-color: #32333b;
+    color:white;
+    padding:0;
+    margin:0;
+    font-family: 'Poppins';
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #2b2c33;
+    padding:1rem;
+    align-items: center;
+
+}
+.nav-button{
+    background-color: #0277eb;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+}
+.nav-button:hover{
+    text-decoration: none;
+    transition: border-color 0.3s ease; 
+    border: 0.1rem solid #2d7ccae6;
+    cursor:pointer;
+}
+.nav-brand{
+    font-weight: 800;
+}
+.nav-brand>img{
+    width: 4rem;
+}
+
+
+
+.main-wrapper{
+    
+}
+
+
+.hero1::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the last value for the darkness of the tint */
+    z-index: 1; /* Make sure the overlay is above the background image */
+  }
+.hero1{
+    position: relative;
+    padding: 1rem;
+    background-color:#3d3e47;
+    background-image: url(https://th.bing.com/th/id/OIP.1kwISM901HrRAIiYbYepkgHaE8?rs=1&pid=ImgDetMain);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero1>div{
+    position: relative;
+    padding:1rem;
+    z-index: 2;
+}
+@media screen and (min-width: 900px) {
+    .hero1>div{
+        padding:1rem 10rem;
+    }
+
+}
+.hero1>div>p{
+    position: relative;
+    font-weight: 800;
+    z-index: 2;
+}
+.hero1>div>h1>span{
+    position: relative;
+    color: #3a9dff;
+    font-weight: 900;
+    z-index: 2;
+}
+.hero1>div>button{
+    z-index: 2;
+    background-color: #0277eb;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: 800;
+    padding:0.5rem 1rem;
+}
+.hero1>div>button:hover{
+    cursor:pointer;
+}
+
+.section{
+    text-align: center;
+    font-weight: 800;
+}
+.section>h3{
+    font-size: 1.44rem;
+}
+
+
+.servicesection{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+@media screen and (min-width: 700px) {
+    .servicesection{
+        flex-direction: row;
+    }
+
+}
+@media screen and (min-width: 900px) {
+    .servicesection{
+        padding: 0rem 10rem;
+    }
+}
+.servicecard{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.servicecard>img{
+    width: 5rem;
+}
+.servicecard>h4{
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+.servicecard>p{
+    font-weight: 600;
+    font-size: 0.9rem;
+    max-width: 75%;
+}
+.viewallservices{
+    background-color: #0277eb;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+}
+
+
+
+.subscribesection{
+    margin-top: 3rem;
+    padding:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+    background-color: #3d3d43;
+    gap:1rem;
+}
+.subscribesection>h4{
+    margin:0;
+}
+.subscribesection>p{
+    margin:0;
+}
+.subscribesection>input{
+    border-radius:15px;
+}
+.subscribesection>button{
+    background-color: #0277eb;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: 800;
+    padding:0.5rem 1rem;
+}
+
+
+
+.footer{
+    background-color: #2e2e33;
+    padding:1rem;
+    
+}
+.footer>div{
+    padding:0rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer>div>img{
+    width:7rem;
+}
