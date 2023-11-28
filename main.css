@@ -170,6 +170,7 @@ nav{
 }
 .subscribesection>input{
     border-radius:15px;
+    padding: 0.6rem 1rem;
 }
 .subscribesection>button{
     background-color: #0277eb;
