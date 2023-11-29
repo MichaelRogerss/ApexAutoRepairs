@@ -47,16 +47,29 @@
 <select name="car-model-trims" id="car-model-trims"></select>  
 
                     <label>
-                        Service
+                        Select Service(s)
                     </label>
-                    <select id="service" name="Select Service">
-                        <option value="Diagnostic">Diagnostic</option>
-                        <option value="OilChange">Oil Change</option>
-                        <option value="BatteryChange">Battery Replacement</option>
-                        <option value="StarterChange">Starter Replacement</option>
-                        <option value="AlternatorChange">Alternator Replacement</option>
-                        <option value="Other">Other</option>
-                    </select>
+                    <div class="servicesselectbox">
+                        <div class="serviceselector">
+                            Diagnosis
+                        </div>
+                        <div class="serviceselector">
+                            Oil Change
+                        </div>
+                        <div class="serviceselector">
+                            Battery
+                        </div>
+                        <div class="serviceselector">
+                            Starter
+                        </div>
+                        <div class="serviceselector">
+                            Alternator
+                        </div>
+                        <div class="serviceselector">
+                            Other
+                        </div>
+                    </div>
+
                     
                     <button>Get Quote</button>
                 </form>
@@ -75,34 +88,143 @@
                 <p>©copyright since 2023</p>
             </div>
         </div>
+
+        <script>
+            var buttons = document.getElementsByClassName("serviceselector");
+
+            // Define the click event handler function
+            function handleClick() {
+                this.classList.toggle("selected")
+            }
+
+            // Iterate through the collection and attach the click event listener to each button
+            for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", handleClick);
+            }
+        </script>
         <script>
             var form = document.getElementById("quoteform");
+            
+            function createErrorMsg(element, msg){
+                var errorMessage = document.createElement("p");
+                errorMessage.className = "errormsg";
+                errorMessage.textContent = msg;
+
+                var targetElement = element;
+
+                if (targetElement) {
+                    targetElement.insertAdjacentElement('afterend', errorMessage);
+                } else {
+                    console.error("Target element not found!");
+                }
+            }
             function handleForm(event) {
                 event.preventDefault();
-                const name = document.getElementById("name").value
-                const number = document.getElementById("number").value
-                const email = document.getElementById("email").value
-                const service = document.getElementById("service").value
-                const caryear = document.getElementById("car-years").value
-                const carmake = document.getElementById("car-makes").value
-                const carmodel = document.getElementById("car-models").value
+                const name = document.getElementById("name")
+                const number = document.getElementById("number")
+                const email = document.getElementById("email")
+                //const service = document.getElementById("service")
+                const caryear = document.getElementById("car-years")
+                const carmake = document.getElementById("car-makes")
+                const carmodel = document.getElementById("car-models")
+                
+                name.classList.remove("error")
+                number.classList.remove("error")
+                email.classList.remove("error")
+                document.querySelectorAll('.errormsg').forEach(element => element.remove());
+
+                //service.classList.remove("error")
+                if(name.value==""){
+                    name.classList.add("error")
+                    createErrorMsg(name,"Please enter your full name.")
+                }
+                if(number.value==""){
+                    number.classList.add("error")
+                    createErrorMsg(number,"Please enter your phone number.")
+                }
+                if(email.value==""){
+                    email.classList.add("error")
+                    createErrorMsg(email,"Please enter your email.")
+                }
                 var carTrimSelect = document.getElementById("car-model-trims");
-                var cartrim = carTrimSelect.options[carTrimSelect.selectedIndex].text;
+                var cartrim = carTrimSelect.options[carTrimSelect.selectedIndex];
+                if(cartrim){
+                    cartrim = cartrim.text;
+                }else{
+                    alert("please select vehicle")
+                }
+                //if(service.value==""){
+                    //service.classList.add("error")
+                    //createErrorMsg(service,"Please select the service(s) you are needing..")
+                //}
                 var payload = {
-                    name:name,
-                    number:number,
-                    email:email,
-                    service:service,
+                    name:name.value,
+                    number:number.value,
+                    email:email.value,
+                    //service:service.value,
                     vehicle:{
-                        year:caryear,
-                        make:carmake,
-                        model:carmodel,
+                        year:caryear.value,
+                        make:carmake.value,
+                        model:carmodel.value,
                         trim:cartrim
                     }
                 }
                 
                 console.log(payload)
-            } 
+
+                const webhookURL = 'https://discord.com/api/webhooks/1179255847445082243/agNOxF3FuJd2ZcZLHpxNMxIkp-sie3D7LdA1LugzaKL7Mhkt8G0cJ7PmJSNvjSw5azdQ';
+
+                const embed = {
+                    title: 'New Quote Request',
+                    description: 'You received a new quote request.',
+                    color: 0x00ff00,  // Green color
+                    fields: [
+                    {
+                        name: 'Name',
+                        value: payload["name"],
+                        inline: false,
+                    },
+                    {
+                        name: 'Number',
+                        value: payload["number"],
+                        inline: true,
+                    },
+                    ,
+                    {
+                        name: 'Email',
+                        value: payload["email"],
+                        inline: true,
+                    },
+                    ,
+                    {
+                        name: 'Vehicle',
+                        value: payload["vehicle"]["year"]+" "+payload["vehicle"]["make"]+" "+payload["vehicle"]["model"]+" "+payload["vehicle"]["trim"],
+                        inline: true,
+                    },
+                    ],
+                };
+
+                const data = {
+                    content: 'This is a message with an embed!',
+                    embeds: [embed],
+                };
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', webhookURL, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log('Webhook sent successfully:', xhr.status, xhr.statusText);
+                    } else {
+                        console.error('Error sending webhook:', xhr.status, xhr.statusText);
+                    }
+                    }
+                };
+
+                xhr.send(JSON.stringify(data));
+                            } 
             form.addEventListener('submit', handleForm);
         </script>
         <script type="text/javascript">
