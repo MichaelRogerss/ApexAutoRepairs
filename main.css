@@ -79,6 +79,9 @@ nav{
     font-weight: 800;
     z-index: 2;
 }
+.hero1>div>h1{
+    margin-top:0;
+}
 .hero1>div>h1>span{
     position: relative;
     color: #3a9dff;
@@ -135,6 +138,7 @@ nav{
 .servicecard>h4{
     font-weight: 900;
     font-size: 1.3rem;
+    margin-bottom:0;
 }
 .servicecard>p{
     font-weight: 600;
@@ -147,6 +151,7 @@ nav{
     color: white;
     border: none;
     font-weight: 800;
+    margin-top:1rem;
     padding: 0.5rem 1rem;
 }
 
@@ -197,3 +202,37 @@ nav{
 .footer>div>img{
     width:7rem;
 }
+
+
+.quotewrapper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.quotewrapper>form{
+    display:flex;
+    flex-direction: column;
+    gap:0.3rem;
+}
+.quotewrapper>form>input{
+    padding:0.6rem;
+    border-radius:5px;
+}
+.quotewrapper>form>select{
+    padding:0.6rem;
+    border-radius:5px;
+}
+.quotewrapper>form>button{
+    background-color: #0277eb;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: 800;
+    padding:0.5rem 1rem;
+}
+input.error{
+    border: 3px solid red;
+}
+input:focus {
+    outline: none;
+  }
