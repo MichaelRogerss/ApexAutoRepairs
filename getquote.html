@@ -189,24 +189,20 @@
                         value: payload["number"],
                         inline: true,
                     },
-                    ,
                     {
                         name: 'Email',
                         value: payload["email"],
                         inline: true,
                     },
-                    ,
                     {
                         name: 'Vehicle',
                         value: payload["vehicle"]["year"]+" "+payload["vehicle"]["make"]+" "+payload["vehicle"]["model"]+" "+payload["vehicle"]["trim"],
                         inline: true,
-                    },
-                    ],
+                    }
+                    ]
                 };
 
-                const data = {
-                    content: 'This is a message with an embed!',
-                    embeds: [embed],
+                const data = {embeds: [embed],
                 };
 
                 const xhr = new XMLHttpRequest();
