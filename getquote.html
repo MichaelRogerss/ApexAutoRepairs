@@ -1,139 +1,235 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <title>Apex Auto Repair | Mobile Mechanic</title>
-        <link rel="stylesheet" href="main.css">
-    
-    </head>
-    <body>
-        <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
-<script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
-        <nav>
-            <a href="index.html" class="nav-brand">
-                <image src="logo.png"/>
-            </a>
-            <a href="getquote.html" class="nav-button">
-                Get Quote
-            </a>
-        </nav>
-        <div class="main-wrapper">
-
-            <div class="quotewrapper">
-                <h1>Get a quote</h1>
-                <form id="quoteform">
-                    <label>
-                        What's your name
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <title>Apex Auto Repair | Mobile Mechanic</title>
+      <link rel="stylesheet" href="main.css">
+   </head>
+   <body>
+      <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
+      <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+      <nav>
+         <a href="index.html" class="nav-brand">
+            <image src="logo.png"/>
+         </a>
+         <button  id="nextstep" onclick="nextStep()"class="nav-button">
+         Next
+         </button>
+      </nav>
+      <div class="main-wrapper">
+         <div class="quotewrapper">
+            <div class="stepscontainer">
+               <div class="step active">
+                  <img class="active" src="tools.svg" service="" <="" div="">
+                  Service
+               </div>
+               <div class="step">
+                  <img src="car.svg" service="" <="" div="">
+                  Vehicle
+               </div>
+               <div class="step">
+                  <img src="contact.svg" service="" <="" div="">
+                  Contact Info
+               </div>
+            </div>
+            <div class="stepslide2 hidden">
+                <h1>Select your vehicle</h1>
+                <select name="car-years" id="car-years"></select>  
+               <select name="car-makes" id="car-makes"></select> 
+               <select name="car-models" id="car-models"></select>
+               <select name="car-model-trims" id="car-model-trims"></select>  
+            </div>
+            <div class="stepslide3 hidden">
+                <h1>Enter contact info</h1>
+                <label>
+                    What's your name
                     </label>
                     <input id="name" placeholder="Name"/>
-                    
                     <label>
-                        Phone number
+                    Phone number
                     </label>
                     <input id="number" type="number" placeholder="Phone Number"/>
-                    
                     <label>
-                        Email
+                    Email
                     </label>
                     <input id="email" type="email" placeholder="Email"/>
-                    
-                    <label>
-                        Model of your car
-                    </label>
-                    <select name="car-years" id="car-years"></select>  
-<select name="car-makes" id="car-makes"></select> 
-<select name="car-models" id="car-models"></select>
-<select name="car-model-trims" id="car-model-trims"></select>  
-
-                    <label>
-                        Select Service(s)
-                    </label>
-                    <div class="servicesselectbox">
-                        <div class="serviceselector">
-                            Diagnosis
-                        </div>
-                        <div class="serviceselector">
-                            Oil Change
-                        </div>
-                        <div class="serviceselector">
-                            Battery
-                        </div>
-                        <div class="serviceselector">
-                            Starter
-                        </div>
-                        <div class="serviceselector">
-                            Alternator
-                        </div>
-                        <div class="serviceselector">
-                            Other
-                        </div>
-                    </div>
-
-                    
-                    <button>Get Quote</button>
-                </form>
             </div>
-
-
-        </div>
-
-
-        <div class="footer">
-            
-            <div>
-                <img src="logo.png">
-                <p>info@apexautorepairs.com</p>
-                <p>(330)-605-8016</p>
-                <p>©copyright since 2023</p>
+            <div class="stepslidefinal hidden">
+                <h1>You should hear from us soon.</h1>
+            </div>
+            <div class="stepslide1">
+            <h1>What brings you in?</h1>
+            <div class="qsplitter">Recommended Services</div>
+            <div class="servlist">
+               <li>
+                <p>Oil & Filter Change</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+               <li>
+                <p>Tire Rotation</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+               <li>
+                <p>Diagnosis
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+            </div>
+            <div class="qsplitter">More Services</div>
+            <div class="servlist">
+               <li>
+                <p>Battery</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+               <li>
+                <p>Bulbs/Electricity</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+               <li>
+                  <p>Air Filter & Cabin Filter</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+               <li>
+                <p>Fuel Pump</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+               <li>
+                <p>Sensor(s)</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
+               <li>
+                <p>Other</p>
+                  <div>
+                     <p class="sbms">Select</p>
+                     <button class="servselectbtn" >+</button>
+                  </div>
+               </li>
             </div>
         </div>
-
-        <script>
-            var buttons = document.getElementsByClassName("serviceselector");
-
-            // Define the click event handler function
-            function handleClick() {
-                this.classList.toggle("selected")
-            }
-
-            // Iterate through the collection and attach the click event listener to each button
-            for (var i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener("click", handleClick);
-            }
-        </script>
-        <script>
-            var form = document.getElementById("quoteform");
             
-            function createErrorMsg(element, msg){
-                var errorMessage = document.createElement("p");
-                errorMessage.className = "errormsg";
-                errorMessage.textContent = msg;
+         </div>
+      </div>
+      <div class="footer">
+         <div>
+            <img src="logo.png">
+            <p>info@apexautorepairs.com</p>
+            <p>(330)-605-8016</p>
+            <p>©copyright since 2023</p>
+         </div>
+      </div>
+      <script>
+        var step = 1;
+        var selectbtns2 = document.getElementsByClassName("servselectbtn");
+        // Define the click event handler function
 
-                var targetElement = element;
+        function createErrorMsg(element, msg){
+             var errorMessage = document.createElement("p");
+             errorMessage.className = "errormsg";
+             errorMessage.textContent = msg;
+         
+             var targetElement = element;
+         
+             if (targetElement) {
+                 targetElement.insertAdjacentElement('afterend', errorMessage);
+             } else {
+                 console.error("Target element not found!");
+             }
+         }
+        function handle2Click() {
+            var parentElement = this.parentElement;
+            this.classList.toggle("active")
 
-                if (targetElement) {
-                    targetElement.insertAdjacentElement('afterend', errorMessage);
-                } else {
-                    console.error("Target element not found!");
+            var textContainer = parentElement.querySelector(".sbms");
+            console.log(parentElement.classList)
+            if (this.classList.contains("active")) {
+                textContainer.textContent = "Selected";
+            } else {
+                // Set the original text content or whatever text you want when not active
+                textContainer.textContent = "Select";
+            }
+         }
+         
+         // Iterate through the collection and attach the click event listener to each button
+         for (var i = 0; i < selectbtns2.length; i++) {
+            selectbtns2[i].addEventListener("click", handle2Click);
+         }
+
+        
+         var selectedservices = []
+         var caryear;
+         var carmake;
+         var carmodel;
+         var cartrim;
+         function nextStep(){
+            if(step==1){
+                step+=1
+                var nextstepel = document.getElementsByClassName("step")[1]
+                nextstepel.parentElement.classList.add("active")
+                nextstepel.querySelector("img").classList.add("active")
+                document.getElementsByClassName("stepslide1")[0].classList.add("hidden")
+                document.getElementsByClassName("stepslide2")[0].classList.remove("hidden")
+                var selectedbuttons = document.getElementsByClassName("servselectbtn")
+                for (var i = 0; i < selectedbuttons.length; i++) {
+                    var ele = selectedbuttons[i]
+                    
+                    if(ele.classList.contains("active")){
+                        var txte = ele.parentElement.parentElement.querySelector("p").textContent;
+                        selectedservices.push(txte)
+                    }
+                    
                 }
+            }else if(step==2){
+                step+=1;
+                var nextstepel2 = document.getElementsByClassName("step")[2]
+                nextstepel2.parentElement.classList.add("active")
+                nextstepel2.querySelector("img").classList.add("active")
+                document.getElementsByClassName("stepslide2")[0].classList.add("hidden")
+                document.getElementsByClassName("stepslide3")[0].classList.remove("hidden")
+                caryear = document.getElementById("car-years").value
+                carmake = document.getElementById("car-makes").value
+                carmodel = document.getElementById("car-models").value
+                var carTrimSelect = document.getElementById("car-model-trims");
+                cartrim = carTrimSelect.options[carTrimSelect.selectedIndex];
+                if(cartrim){
+                    cartrim = cartrim.text;
+                }else{
+                    alert("please select vehicle")
+                }
+            
             }
-            function handleForm(event) {
-                event.preventDefault();
+            else if(step==3){
+                step+=1;
+                document.getElementsByClassName("stepslide3")[0].classList.add("hidden")
+                document.getElementsByClassName("stepslidefinal")[0].classList.remove("hidden")
+                //final check
+
                 const name = document.getElementById("name")
                 const number = document.getElementById("number")
                 const email = document.getElementById("email")
-                //const service = document.getElementById("service")
-                const caryear = document.getElementById("car-years")
-                const carmake = document.getElementById("car-makes")
-                const carmodel = document.getElementById("car-models")
-                
-                name.classList.remove("error")
-                number.classList.remove("error")
-                email.classList.remove("error")
-                document.querySelectorAll('.errormsg').forEach(element => element.remove());
-
-                //service.classList.remove("error")
                 if(name.value==""){
                     name.classList.add("error")
                     createErrorMsg(name,"Please enter your full name.")
@@ -146,149 +242,143 @@
                     email.classList.add("error")
                     createErrorMsg(email,"Please enter your email.")
                 }
-                var carTrimSelect = document.getElementById("car-model-trims");
-                var cartrim = carTrimSelect.options[carTrimSelect.selectedIndex];
-                if(cartrim){
-                    cartrim = cartrim.text;
-                }else{
-                    alert("please select vehicle")
-                }
-                //if(service.value==""){
-                    //service.classList.add("error")
-                    //createErrorMsg(service,"Please select the service(s) you are needing..")
-                //}
-                var payload = {
+                const vehicle = caryear+" "+carmake+" "+carmodel+" "+cartrim;
+
+                const payload = {
                     name:name.value,
                     number:number.value,
                     email:email.value,
-                    //service:service.value,
-                    vehicle:{
-                        year:caryear.value,
-                        make:carmake.value,
-                        model:carmodel.value,
-                        trim:cartrim
-                    }
+                    vehicle:vehicle,
+                    services:selectedservices
                 }
-                
                 console.log(payload)
 
                 const webhookURL = 'https://discord.com/api/webhooks/1179255847445082243/agNOxF3FuJd2ZcZLHpxNMxIkp-sie3D7LdA1LugzaKL7Mhkt8G0cJ7PmJSNvjSw5azdQ';
+         
+             const embed = {
+                 title: 'New Quote Request',
+                 description: 'You received a new quote request.',
+                 color: 0x00ff00,  // Green color
+                 fields: [
+                 {
+                     name: 'Name',
+                     value: payload["name"],
+                     inline: false,
+                 },
+                 {
+                     name: 'Number',
+                     value: payload["number"],
+                     inline: true,
+                 },
+                 {
+                     name: 'Email',
+                     value: payload["email"],
+                     inline: true,
+                 }
+                 ]
+             };
+         
+             const data = {embeds: [embed],
+             };
+         
+             const xhr = new XMLHttpRequest();
+             xhr.open('POST', webhookURL, true);
+             xhr.setRequestHeader('Content-Type', 'application/json');
+         
+             xhr.onreadystatechange = function() {
+                 if (xhr.readyState === 4) {
+                 if (xhr.status === 200) {
+                     console.log('Webhook sent successfully:', xhr.status, xhr.statusText);
+                 } else {
+                     console.error('Error sending webhook:', xhr.status, xhr.statusText);
+                 }
+                 }
+             };
+         
+             xhr.send(JSON.stringify(data));
+            }
+        }
+      </script>
+      <script>
+         var buttons = document.getElementsByClassName("serviceselector");
+         
+         // Define the click event handler function
+         function handleClick() {
+             this.classList.toggle("selected")
+         }
+         
+         // Iterate through the collection and attach the click event listener to each button
+         for (var i = 0; i < buttons.length; i++) {
+         buttons[i].addEventListener("click", handleClick);
+         }
+      </script>
 
-                const embed = {
-                    title: 'New Quote Request',
-                    description: 'You received a new quote request.',
-                    color: 0x00ff00,  // Green color
-                    fields: [
-                    {
-                        name: 'Name',
-                        value: payload["name"],
-                        inline: false,
-                    },
-                    {
-                        name: 'Number',
-                        value: payload["number"],
-                        inline: true,
-                    },
-                    {
-                        name: 'Email',
-                        value: payload["email"],
-                        inline: true,
-                    },
-                    {
-                        name: 'Vehicle',
-                        value: payload["vehicle"]["year"]+" "+payload["vehicle"]["make"]+" "+payload["vehicle"]["model"]+" "+payload["vehicle"]["trim"],
-                        inline: true,
-                    }
-                    ]
-                };
-
-                const data = {embeds: [embed],
-                };
-
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', webhookURL, true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        console.log('Webhook sent successfully:', xhr.status, xhr.statusText);
-                    } else {
-                        console.error('Error sending webhook:', xhr.status, xhr.statusText);
-                    }
-                    }
-                };
-
-                xhr.send(JSON.stringify(data));
-                            } 
-            form.addEventListener('submit', handleForm);
-        </script>
-        <script type="text/javascript">
-            $(document).ready(
-            function()
-            {
-                 //Create a variable for the CarQuery object.  You can call it whatever you like.
-                 var carquery = new CarQuery();
-            
-                 //Run the carquery init function to get things started:
-                 carquery.init();
-                 
-                 //Optionally, you can pre-select a vehicle by passing year / make / model / trim to the init function:
-                 //carquery.init('2000', 'dodge', 'Viper', 11636);
-            
-                 //Optional: Pass sold_in_us:true to the setFilters method to show only US models. 
-                 carquery.setFilters( {sold_in_us:true} );
-            
-                 //Optional: initialize the year, make, model, and trim drop downs by providing their element IDs
-                 carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
-            
-                 //Optional: set the onclick event for a button to show car data.
-                 $('#cq-show-data').click(  function(){ carquery.populateCarData('car-model-data'); } );
-            
-                 //Optional: initialize the make, model, trim lists by providing their element IDs.
-                 carquery.initMakeModelTrimList('make-list', 'model-list', 'trim-list', 'trim-data-list');
-            
-                 //Optional: set minimum and/or maximum year options.
-                 carquery.year_select_min=1970;
-                 carquery.year_select_max=2024;
-             
-                 //Optional: initialize search interface elements.
-                 //The IDs provided below are the IDs of the text and select inputs that will be used to set the search criteria.
-                 //All values are optional, and will be set to the default values provided below if not specified.
-                 var searchArgs =
-                 ({
-                     body_id:                       "cq-body"
-                    ,default_search_text:           "Keyword Search"
-                    ,doors_id:                      "cq-doors"
-                    ,drive_id:                      "cq-drive"
-                    ,engine_position_id:            "cq-engine-position"
-                    ,engine_type_id:                "cq-engine-type"
-                    ,fuel_type_id:                  "cq-fuel-type"
-                    ,min_cylinders_id:              "cq-min-cylinders"
-                    ,min_mpg_hwy_id:                "cq-min-mpg-hwy"
-                    ,min_power_id:                  "cq-min-power"
-                    ,min_top_speed_id:              "cq-min-top-speed"
-                    ,min_torque_id:                 "cq-min-torque"
-                    ,min_weight_id:                 "cq-min-weight"
-                    ,min_year_id:                   "cq-min-year"
-                    ,max_cylinders_id:              "cq-max-cylinders"
-                    ,max_mpg_hwy_id:                "cq-max-mpg-hwy"
-                    ,max_power_id:                  "cq-max-power"
-                    ,max_top_speed_id:              "cq-max-top-speed"
-                    ,max_weight_id:                 "cq-max-weight"
-                    ,max_year_id:                   "cq-max-year"
-                    ,search_controls_id:            "cq-search-controls"
-                    ,search_input_id:               "cq-search-input"
-                    ,search_results_id:             "cq-search-results"
-                    ,search_result_id:              "cq-search-result"
-                    ,seats_id:                      "cq-seats"
-                    ,sold_in_us_id:                 "cq-sold-in-us"
-                 }); 
-                 carquery.initSearchInterface(searchArgs);
-            
-                 //If creating a search interface, set onclick event for the search button.  Make sure the ID used matches your search button ID.
-                 $('#cq-search-btn').click( function(){ carquery.search(); } );
-            });
-            </script>
-    </body>
+      <script type="text/javascript">
+         $(document).ready(
+         function()
+         {
+              //Create a variable for the CarQuery object.  You can call it whatever you like.
+              var carquery = new CarQuery();
+         
+              //Run the carquery init function to get things started:
+              carquery.init();
+              
+              //Optionally, you can pre-select a vehicle by passing year / make / model / trim to the init function:
+              //carquery.init('2000', 'dodge', 'Viper', 11636);
+         
+              //Optional: Pass sold_in_us:true to the setFilters method to show only US models. 
+              carquery.setFilters( {sold_in_us:true} );
+         
+              //Optional: initialize the year, make, model, and trim drop downs by providing their element IDs
+              carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
+         
+              //Optional: set the onclick event for a button to show car data.
+              $('#cq-show-data').click(  function(){ carquery.populateCarData('car-model-data'); } );
+         
+              //Optional: initialize the make, model, trim lists by providing their element IDs.
+              carquery.initMakeModelTrimList('make-list', 'model-list', 'trim-list', 'trim-data-list');
+         
+              //Optional: set minimum and/or maximum year options.
+              carquery.year_select_min=1970;
+              carquery.year_select_max=2024;
+          
+              //Optional: initialize search interface elements.
+              //The IDs provided below are the IDs of the text and select inputs that will be used to set the search criteria.
+              //All values are optional, and will be set to the default values provided below if not specified.
+              var searchArgs =
+              ({
+                  body_id:                       "cq-body"
+                 ,default_search_text:           "Keyword Search"
+                 ,doors_id:                      "cq-doors"
+                 ,drive_id:                      "cq-drive"
+                 ,engine_position_id:            "cq-engine-position"
+                 ,engine_type_id:                "cq-engine-type"
+                 ,fuel_type_id:                  "cq-fuel-type"
+                 ,min_cylinders_id:              "cq-min-cylinders"
+                 ,min_mpg_hwy_id:                "cq-min-mpg-hwy"
+                 ,min_power_id:                  "cq-min-power"
+                 ,min_top_speed_id:              "cq-min-top-speed"
+                 ,min_torque_id:                 "cq-min-torque"
+                 ,min_weight_id:                 "cq-min-weight"
+                 ,min_year_id:                   "cq-min-year"
+                 ,max_cylinders_id:              "cq-max-cylinders"
+                 ,max_mpg_hwy_id:                "cq-max-mpg-hwy"
+                 ,max_power_id:                  "cq-max-power"
+                 ,max_top_speed_id:              "cq-max-top-speed"
+                 ,max_weight_id:                 "cq-max-weight"
+                 ,max_year_id:                   "cq-max-year"
+                 ,search_controls_id:            "cq-search-controls"
+                 ,search_input_id:               "cq-search-input"
+                 ,search_results_id:             "cq-search-results"
+                 ,search_result_id:              "cq-search-result"
+                 ,seats_id:                      "cq-seats"
+                 ,sold_in_us_id:                 "cq-sold-in-us"
+              }); 
+              carquery.initSearchInterface(searchArgs);
+         
+              //If creating a search interface, set onclick event for the search button.  Make sure the ID used matches your search button ID.
+              $('#cq-search-btn').click( function(){ carquery.search(); } );
+         });
+      </script>
+   </body>
 </html>
