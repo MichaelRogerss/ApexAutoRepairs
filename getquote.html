@@ -2,9 +2,26 @@
 <html>
    <head>
       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-      <title>Apex Auto Repair | Mobile Mechanic</title>
-      <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Apex Auto Repair | Mobile Mechanic</title>
+    <meta name="description" content="Your go-to mobile mechanic for automotive services in Canton, OH. We offer oil changes, diagnostics, and electrical services at the best prices.">
+    <meta name="keywords" content="auto repair, mobile mechanic, oil changes, diagnostics, electrical services, Canton, OH">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:title" content="Apex Auto Repair | Mobile Mechanic">
+    <meta property="og:description" content="Your go-to mobile mechanic for automotive services in Canton, OH. We offer oil changes, diagnostics, and electrical services at the best prices.">
+    <meta property="og:image" content="logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.yourwebsite.com">
+    <meta property="twitter:title" content="Apex Auto Repair | Mobile Mechanic">
+    <meta property="twitter:description" content="Your go-to mobile mechanic for automotive services in Canton, OH. We offer oil changes, diagnostics, and electrical services at the best prices.">
+    <meta property="twitter:image" content="logo.png">
+    <link rel="stylesheet" href="main.css">
    </head>
    <body>
       <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
@@ -54,9 +71,13 @@
                     Email
                     </label>
                     <input id="email" type="email" placeholder="Email"/>
+
+                    <button  id="nextstep2" onclick="nextStep()" class="button">
+                     Next
+                     </button>
             </div>
             <div class="stepslidefinal hidden">
-                <h1>You should hear from us soon.</h1>
+                <h1>Thank you, you should hear from us soon.</h1>
             </div>
             <div class="stepslide1">
             <h1>What brings you in?</h1>
@@ -137,7 +158,7 @@
          <div>
             <img src="logo.png">
             <p>info@apexautorepairs.com</p>
-            <p>(330)-605-8016</p>
+            <p>(567)-238-4494</p>
             <p>©copyright since 2023</p>
          </div>
       </div>
@@ -203,21 +224,22 @@
                     
                 }
             }else if(step==2){
-                step+=1;
-                var nextstepel2 = document.getElementsByClassName("step")[2]
-                nextstepel2.parentElement.classList.add("active")
-                nextstepel2.querySelector("img").classList.add("active")
-                document.getElementsByClassName("stepslide2")[0].classList.add("hidden")
-                document.getElementsByClassName("stepslide3")[0].classList.remove("hidden")
-                caryear = document.getElementById("car-years").value
+               caryear = document.getElementById("car-years").value
                 carmake = document.getElementById("car-makes").value
                 carmodel = document.getElementById("car-models").value
                 var carTrimSelect = document.getElementById("car-model-trims");
                 cartrim = carTrimSelect.options[carTrimSelect.selectedIndex];
                 if(cartrim){
+                     step+=1;
                     cartrim = cartrim.text;
-                }else{
+                    var nextstepel2 = document.getElementsByClassName("step")[2]
+                     nextstepel2.parentElement.classList.add("active")
+                     nextstepel2.querySelector("img").classList.add("active")
+                     document.getElementsByClassName("stepslide2")[0].classList.add("hidden")
+                     document.getElementsByClassName("stepslide3")[0].classList.remove("hidden")
+               }else{
                     alert("please select vehicle")
+                    
                 }
             
             }
@@ -273,6 +295,16 @@
                  {
                      name: 'Email',
                      value: payload["email"],
+                     inline: true,
+                 },
+                 {
+                     name: 'Vehicle',
+                     value: payload["vehicle"],
+                     inline: true,
+                 },
+                 {
+                     name: 'Services',
+                     value: JSON.stringify(payload["services"]),
                      inline: true,
                  }
                  ]
